@@ -1,0 +1,9 @@
+:: /tests/prepare/install-deps
+installing package set: gcc make python3-devel
+PASSED all packages installed
+
+:: /tests/execute/parallel-suite
+spawning 8 worker threads
+worker-3 acquired lock on /var/tmp/tmt/results.yaml
+worker-5 ERROR could not acquire lock, deadlock detected after 120s
+FAILED parallel-suite: results file lock contention between workers

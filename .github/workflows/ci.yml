@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-and-eval-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Unit tests
+        run: PYTHONPATH=src python -m pytest tests/ -v
+
+      # The eval harness is a regression gate: if triage accuracy on the
+      # eval set drops below threshold, the build fails and the change
+      # cannot merge. Runs offline via the mock LLM backend, so no API
+      # key is needed in CI.
+      - name: Eval regression gate
+        run: python evals/run_evals.py

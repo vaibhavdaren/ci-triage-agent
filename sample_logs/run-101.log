@@ -1,0 +1,18 @@
+:: /tests/provision/mrack
+preparing guest request for Fedora-40
+INFO waiting for guest to boot
+PASSED provisioning complete in 84s
+
+:: /tests/network/dns-resolution
+resolving internal.fedoraproject.org
+INFO query sent to 10.0.0.2
+ERROR timeout after 30s waiting for DNS response
+Traceback (most recent call last):
+  File "dns_check.py", line 42, in resolve
+    answer = resolver.query(hostname)
+dns.exception.Timeout: The DNS operation timed out
+FAILED dns-resolution: upstream resolver unreachable
+
+:: /tests/storage/mount-check
+mounting /dev/vdb1 at /mnt/data
+PASSED mount verified

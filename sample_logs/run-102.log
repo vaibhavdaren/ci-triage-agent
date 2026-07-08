@@ -1,0 +1,9 @@
+tests/unit/test_artifacts.py::test_rpm_install PASSED
+tests/unit/test_artifacts.py::test_koji_fetch FAILED
+================== FAILURES ==================
+Traceback (most recent call last):
+  File "tests/unit/test_artifacts.py", line 88, in test_koji_fetch
+    assert response.status_code == 200
+AssertionError: assert 503 == 200
+koji hub returned 503 Service Unavailable during artifact fetch
+tests/unit/test_artifacts.py::test_checksum PASSED

@@ -1,0 +1,6 @@
+{"question": "Which test failed in run-101 and why?", "expected_test": "/tests/network/dns-resolution"}
+{"question": "Why is DNS resolution timing out in CI?", "expected_test": "/tests/network/dns-resolution"}
+{"question": "What broke the koji artifact fetch?", "expected_test": "tests/unit/test_artifacts.py::test_koji_fetch"}
+{"question": "Is there a 503 error anywhere in recent runs?", "expected_test": "tests/unit/test_artifacts.py::test_koji_fetch"}
+{"question": "Which test has a lock contention or deadlock issue?", "expected_test": "/tests/execute/parallel-suite"}
+{"question": "Why did the parallel worker suite fail in run-103?", "expected_test": "/tests/execute/parallel-suite"}

@@ -1,0 +1,10 @@
+langgraph>=0.2
+langchain-core>=0.3
+langchain-anthropic>=0.2
+fastapi>=0.110
+uvicorn>=0.29
+rank_bm25>=0.2.2
+scikit-learn>=1.4
+numpy>=1.26
+pydantic>=2.6
+pytest>=8.0
