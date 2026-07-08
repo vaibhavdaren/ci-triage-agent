@@ -1,0 +1,14 @@
+:: /tests/prepare/install-deps
+installing package set: libvirt-devel qemu-kvm
+Downloading libvirt-devel-9.0.0-1.fc40.x86_64.rpm
+ERROR curl: (6) Could not resolve host: mirror.fedoraproject.org
+Traceback (most recent call last):
+  File "dnf_install.py", line 55, in install_packages
+    subprocess.run(["dnf", "install", "-y", *packages], check=True)
+subprocess.CalledProcessError: Command '['dnf', 'install', '-y', 'libvirt-devel', 'qemu-kvm']' returned non-zero exit status 1
+FAILED install-deps: dnf transaction failed, mirror unreachable
+
+:: /tests/provision/mrack
+preparing guest request for Fedora-41
+INFO waiting for guest to boot
+PASSED provisioning complete in 77s

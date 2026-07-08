@@ -1,0 +1,7 @@
+{
+  "dns-resolution": "team-networking",
+  "test_koji_fetch": "team-build-infra",
+  "parallel-suite": "team-test-execution",
+  "prepare/install-deps": "team-build-infra",
+  "test_intermittent_network": "team-networking"
+}

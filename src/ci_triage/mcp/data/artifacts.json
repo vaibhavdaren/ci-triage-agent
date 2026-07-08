@@ -1,0 +1,7 @@
+{
+  "run-101": {"build_url": "https://ci.example.com/builds/101", "artifact": "logs-101.tar.gz", "status": "failed"},
+  "run-102": {"build_url": "https://ci.example.com/builds/102", "artifact": "logs-102.tar.gz", "status": "failed"},
+  "run-103": {"build_url": "https://ci.example.com/builds/103", "artifact": "logs-103.tar.gz", "status": "failed"},
+  "run-104": {"build_url": "https://ci.example.com/builds/104", "artifact": "logs-104.tar.gz", "status": "failed"},
+  "run-105": {"build_url": "https://ci.example.com/builds/105", "artifact": "logs-105.tar.gz", "status": "failed"}
+}
