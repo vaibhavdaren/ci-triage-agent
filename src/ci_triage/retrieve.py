@@ -15,6 +15,8 @@ changing callers.
 """
 from __future__ import annotations
 
+import pickle
+from pathlib import Path
 from typing import Protocol
 
 import numpy as np
@@ -65,6 +67,22 @@ class HybridIndex:
         texts = [f"{c.run_id} {c.test_name}\n{c.text}" for c in chunks]
         self._bm25 = BM25Okapi([_tokenize(t) for t in texts])
         self._matrix = self.embedder.fit_transform(texts)
+
+    def save(self, path: str | Path) -> None:
+        """Persist the fitted index (chunks, BM25 state, embedder, matrix)
+        so a restarted process doesn't need a fresh /ingest."""
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("wb") as f:
+            pickle.dump(self, f)
+
+    @staticmethod
+    def load(path: str | Path) -> "HybridIndex":
+        with Path(path).open("rb") as f:
+            index = pickle.load(f)
+        if not isinstance(index, HybridIndex):
+            raise TypeError(f"{path} does not contain a HybridIndex")
+        return index
 
     def _vector_rank(self, query: str) -> list[int]:
         q = self.embedder.transform([query])[0]
